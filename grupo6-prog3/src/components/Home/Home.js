@@ -7,8 +7,15 @@ class Movies extends Component{
             datos: []
         }
     }
+    
     componentDidMount(){
-        fetch("https://rickandmortyapi.com/api/character")
+        fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
+            method: "GET",
+            headers: {
+              Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OGM2MTc0MWVkNDE5NDBlODVkYjdkNDRkZThkZDJmNiIsIm5iZiI6MTcyNjQzNzE2OC40Njc5NjEsInN1YiI6IjY2ZTZmZDFkMzc2OGE3M2Y4ZDkxNmEwMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jw0BEB-N50O_V6bq90B3HTVrviQgH0nesB7zO2INN3w",
+              Accept: "application/json"
+            }
+          })
             .then(response => response.json() )
             .then( data => this.setState(
                 {datos: data.results}
@@ -21,7 +28,7 @@ class Movies extends Component{
                 {this.state.datos.length === 0 ?
                 <h3> Cargando... </h3> :
                 <>{this.state.datos.map((data, idx)=>
-                 <p>{data.name}</p>  
+                 <p>{data.title}</p>  
                 )}
                 </>
                 }
