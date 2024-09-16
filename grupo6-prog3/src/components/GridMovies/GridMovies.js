@@ -14,7 +14,7 @@ class GridMovies extends Component{
     constructor(props){
         super(props);
         this.state = {
-            datos: []
+            movies: props.movies || []
         }
     }
     
@@ -22,7 +22,7 @@ class GridMovies extends Component{
         fetch(this.props.url, options)
             .then(response => response.json() )
             .then( data => this.setState(
-                {datos: data.results}
+                {movies: data.results}
             ))
             .catch( error => console.log(error));
     }
@@ -30,13 +30,14 @@ class GridMovies extends Component{
         return(
                 <section>
                     <h2>{this.props.titulo}</h2>
-                    {this.state.datos.length === 0 ?
+                    {this.state.movies.length === 0 ?
                     <h3> Cargando... </h3> :
-                    <>{this.state.datos.map((data, idx)=>
+                    <>{this.state.movies.map((movie, idx)=>
                         <Card 
                         key={idx}
-                        nombre ={data.title}
-                        id ={data.id}
+                        nombre ={movie.title}
+                        id ={movie.id}
+                        image = {`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
                         />
                     )}
                     </>

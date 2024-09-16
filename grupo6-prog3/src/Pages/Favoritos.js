@@ -1,5 +1,6 @@
 import { Component } from "react";
 import GridMovies from "../components/GridMovies/GridMovies"
+import Card from "../components/Card/Card"
 
 class Favoritos extends Component{
     constructor(props){
@@ -15,7 +16,7 @@ class Favoritos extends Component{
         if (storage !== null) {
             const parseStorage = JSON.parse(storage)
             parseStorage.map(id => 
-                fetch(`https://api.themoviedb.org/3/movie/${id}&api_key=68c61741ed41940e85db7d44de8dd2f6`)
+                fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=68c61741ed41940e85db7d44de8dd2f6`)
                 .then(response => response.json())
                 .then(data => this.setState({
                     movies: [...this.state.movies, data]
@@ -28,7 +29,14 @@ class Favoritos extends Component{
     render() {
         return(
             <>
-                <GridMovies />
+                {this.state.movies.map((movies, idx)=>
+                    <Card 
+                        key={idx}
+                        nombre ={movies.title}
+                        id ={movies.id}
+                        image = {`https://image.tmdb.org/t/p/w342/${movies.poster_path}`}
+                    />
+                )}
             </>
         )
     }

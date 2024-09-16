@@ -1,4 +1,5 @@
 import { Component } from "react"
+import {Link} from "react-router-dom"
 
 class Card extends Component{
     constructor(props){
@@ -54,9 +55,11 @@ render(){
     return( 
         <article>
             <h2>{this.props.nombre}</h2>
+            <img src={this.props.image} alt="Imagen pelicula"/>
             <button onClick={() => !this.state.esFavorito ? this.agregarAFavoritos() : this.quitarDeFavoritos()}>
                 {!this.state.esFavorito ? "Agregar a favoritos" : "Quitar de favoritos"}
             </button>
+            <button><Link to={`pelicula/${this.props.id}`}>Ver detalle</Link></button>
         </article>
     )}
 }
