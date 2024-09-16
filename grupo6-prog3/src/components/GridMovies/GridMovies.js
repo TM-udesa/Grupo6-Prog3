@@ -36,6 +36,7 @@ class GridMovies extends Component{
                         <Card 
                         key={idx}
                         nombre ={data.title}
+                        id ={data.id}
                         />
                     )}
                     </>
