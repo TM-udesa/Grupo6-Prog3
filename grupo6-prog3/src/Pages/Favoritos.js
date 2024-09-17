@@ -35,6 +35,7 @@ class Favoritos extends Component{
                         nombre ={movies.title}
                         id ={movies.id}
                         image = {`https://image.tmdb.org/t/p/w342/${movies.poster_path}`}
+                        descripcion = {movies.overview}
                     />
                 )}
             </>

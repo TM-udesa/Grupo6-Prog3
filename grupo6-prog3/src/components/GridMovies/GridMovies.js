@@ -22,7 +22,7 @@ class GridMovies extends Component{
         fetch(this.props.url, options)
             .then(response => response.json() )
             .then( data => this.setState(
-                {movies: data.results}
+                {movies: data.results.slice(0, 5)}
             ))
             .catch( error => console.log(error));
     }
@@ -38,6 +38,7 @@ class GridMovies extends Component{
                         nombre ={movie.title}
                         id ={movie.id}
                         image = {`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+                        descripcion = {movie.overview}
                         />
                     )}
                     </>

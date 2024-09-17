@@ -9,9 +9,6 @@ function App() {
   return (
     <>
       <Header />
-      <section> 
-        <h1>el mejor equipo</h1>
-      </section>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/Favoritos" component={Favoritos}/>

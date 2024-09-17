@@ -1,17 +1,19 @@
 import { Component } from "react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import "./Card.css"
 
-class Card extends Component{
-    constructor(props){
+class Card extends Component {
+    constructor(props) {
         super(props)
         this.state = {
-            esFavorito: false
+            esFavorito: false,
+            verDescripcion: false
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const storage = localStorage.getItem("favoritos");
-        if (storage !== null){
+        if (storage !== null) {
             const parseStorage = JSON.parse(storage)
             const estaFav = parseStorage.includes(this.props.id)
 
@@ -23,14 +25,14 @@ class Card extends Component{
         }
     }
 
-    agregarAFavoritos(){
+    agregarAFavoritos() {
         const storage = localStorage.getItem("favoritos");
-        if(storage !== null){
+        if (storage !== null) {
             const parseStorage = JSON.parse(storage)
             parseStorage.push(this.props.id)
             const stringStorage = JSON.stringify(parseStorage)
             localStorage.setItem("favoritos", stringStorage)
-        } else{
+        } else {
             const primerFavorito = [this.props.id]
             const stringStorage = JSON.stringify(primerFavorito)
             localStorage.setItem("favoritos", stringStorage)
@@ -40,7 +42,7 @@ class Card extends Component{
         })
     }
 
-    quitarDeFavoritos(){
+    quitarDeFavoritos() {
         const storage = localStorage.getItem("favoritos")
         const parseStorage = JSON.parse(storage)
         const restoFavoritos = parseStorage.filter(id => id !== this.props.id)
@@ -51,17 +53,32 @@ class Card extends Component{
             esFavorito: false
         })
     }
-render(){
-    return( 
-        <article>
-            <h2>{this.props.nombre}</h2>
-            <img src={this.props.image} alt="Imagen pelicula"/>
-            <button onClick={() => !this.state.esFavorito ? this.agregarAFavoritos() : this.quitarDeFavoritos()}>
-                {!this.state.esFavorito ? "Agregar a favoritos" : "Quitar de favoritos"}
-            </button>
-            <button><Link to={`pelicula/${this.props.id}`}>Ver detalle</Link></button>
-        </article>
-    )}
+    handleVerDescripcion = () => (
+        this.setState(prevState => ({
+            verDescripcion: !prevState.verDescripcion
+        }))
+
+    )
+    render() {
+        return (
+            <article>
+                <h2>{this.props.nombre}</h2>
+                <img src={this.props.image} alt="Imagen pelicula" />
+                <button onClick={() => !this.state.esFavorito ? this.agregarAFavoritos() : this.quitarDeFavoritos()}>
+                    {!this.state.esFavorito ? "Agregar a favoritos" : "Quitar de favoritos"}
+                </button>
+                <button><Link to={`pelicula/${this.props.id}`}>Ver detalle</Link></button>
+                <div>
+                    {this.state.verDescripcion ? 
+                        <button onClick={() => this.handleVerDescripcion()}>Ver Menos</button> :
+                        <button onClick={() => this.handleVerDescripcion()}>Ver Descripcion</button>}
+                </div>
+
+                <p className={this.state.verDescripcion ? "mostrar" : "ocultar"}>{this.props.descripcion}</p>
+
+            </article >
+        )
+    }
 }
 
 
