@@ -15,29 +15,27 @@ class Favoritos extends Component{
         const storage = localStorage.getItem("favoritos")
         if (storage !== null) {
             const parseStorage = JSON.parse(storage)
-            parseStorage.map(id => 
+            const fetchMovies = parseStorage.map(id =>
                 fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=68c61741ed41940e85db7d44de8dd2f6`)
-                .then(response => response.json())
-                .then(data => this.setState({
-                    movies: [...this.state.movies, data]
-                }))
-                )
+                    .then(response => response.json())
+                );
+            Promise.all(fetchMovies)
+                .then((moviesData) => {
+                    this.setState({
+                        movies: moviesData
+                    });
+                })
 
         }
     }
 
     render() {
         return(
-            <>
-                {this.state.movies.map((movies, idx)=>
-                    <Card 
-                        key={idx}
-                        nombre ={movies.title}
-                        id ={movies.id}
-                        image = {`https://image.tmdb.org/t/p/w342/${movies.poster_path}`}
-                        descripcion = {movies.overview}
-                    />
-                )}
+            <>  {this.state.movies.length > 0 ? (
+                    <GridMovies movies = {this.state.movies} titulo = "Favoritos" limit = "100"/>
+                    ) : (
+                    <p>No hay peliculas en favoritos</p>
+                    )}
             </>
         )
     }

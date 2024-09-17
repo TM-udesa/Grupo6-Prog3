@@ -14,18 +14,25 @@ class GridMovies extends Component{
     constructor(props){
         super(props);
         this.state = {
-            movies: props.movies || []
+            movies: this.props.movies || []
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.movies !== this.props.movies) {
+            this.setState({ movies: this.props.movies });
         }
     }
     
     componentDidMount(){
+        if (this.state.movies.length === 0) {
         fetch(this.props.url, options)
             .then(response => response.json() )
             .then( data => this.setState(
-                {movies: data.results}
+                {movies: data.results.slice(0,this.props.limit)}
             ))
             .catch( error => console.log(error));
-    }
+    }}
     render(){
         return(
                 <section>
