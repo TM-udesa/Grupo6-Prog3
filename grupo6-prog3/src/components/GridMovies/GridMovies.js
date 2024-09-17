@@ -22,7 +22,7 @@ class GridMovies extends Component{
         fetch(this.props.url, options)
             .then(response => response.json() )
             .then( data => this.setState(
-                {movies: data.results.slice(0, 5)}
+                {movies: data.results}
             ))
             .catch( error => console.log(error));
     }

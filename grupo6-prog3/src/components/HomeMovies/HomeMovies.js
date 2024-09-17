@@ -4,7 +4,7 @@ import GridMovies from "../GridMovies/GridMovies";
 const HomeMovies = () => {
         return(
             <>
-                <section>
+                <section> 
                     <GridMovies
                         titulo = "Populares"
                         url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"  
