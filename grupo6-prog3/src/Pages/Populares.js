@@ -1,4 +1,5 @@
 import { Component } from "react";
+import GridMovies from "../components/GridMovies/GridMovies"
 
 class Populares extends Component{
     constructor(props){
@@ -6,9 +7,16 @@ class Populares extends Component{
     }
     
     render() {
-        return(
+        return (
             <>
-                <p>Populares</p>
+                <section>
+                    <GridMovies
+                        titulo="Populares"
+                        url="https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
+                        limit="100"
+                    />
+
+                </section>
             </>
         )
     }
