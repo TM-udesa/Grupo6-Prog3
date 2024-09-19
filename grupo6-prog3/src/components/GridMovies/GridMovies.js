@@ -17,12 +17,6 @@ class GridMovies extends Component{
             movies: this.props.movies || []
         }
     }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.movies !== this.props.movies) {
-            this.setState({ movies: this.props.movies });
-        }
-    }
     
     componentDidMount(){
         if (this.state.movies.length === 0) {
