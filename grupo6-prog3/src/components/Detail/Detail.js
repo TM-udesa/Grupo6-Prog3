@@ -22,7 +22,19 @@ class Detail extends Component{
         return (
             <>  
                 <img src={`https://image.tmdb.org/t/p/w342/${this.state.detalle.poster_path}`} alt="Imagen pelicula" />
-                <p>{this.state.detalle.title}</p>
+                <p>Nombre de la pelicula: {this.state.detalle.title}</p>
+                <p>Calificacion promedio: {this.state.detalle.vote_average}</p>
+                <ul>
+                    {this.state.detalle.genres && this.state.detalle.genres.length > 0 ? (
+                    this.state.detalle.genres.map((genero, idx) => (
+                    <li key={idx}>{genero.name}</li>
+                    ))
+                    ) : (
+                    <li>Cargando géneros...</li>
+                    )}
+                </ul>
+                <p>Fecha de estreno: {this.state.detalle.release_date}</p>
+                <p>Duracion: {this.state.detalle.runtime}mins</p>
                 
             </>
         )

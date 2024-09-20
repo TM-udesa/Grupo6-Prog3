@@ -13,7 +13,6 @@ class Detalles extends Component{
         return (
             <>
                 <Detail id = {this.state.id} />
-                <p>{this.state.id}</p>
             </>
         )
     }
