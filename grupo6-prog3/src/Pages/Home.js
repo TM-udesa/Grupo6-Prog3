@@ -1,9 +1,9 @@
 import HomeMovies from "../components/HomeMovies/HomeMovies"
 
-const Home = () => {
+const Home = (props) => {
     return(
         <>      
-            <HomeMovies />
+           <HomeMovies history={props.history} />
         </>
     )
 }

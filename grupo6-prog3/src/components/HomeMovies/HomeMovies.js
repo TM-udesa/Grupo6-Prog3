@@ -2,11 +2,11 @@ import { Component } from "react";
 import GridMovies from "../GridMovies/GridMovies";
 import { Link } from "react-router-dom"
 import SearchForm from "../Search/SearchForm";
-const HomeMovies = () => {
+const HomeMovies = (props) => {
         return(
             <>
                 <section>
-                    <SearchForm></SearchForm>
+                <SearchForm history={props.history} />
                     <article>
                     
                     <GridMovies
