@@ -1,17 +1,26 @@
-import { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-class Detalles extends Component{
-    constructor(props){
-        super(props);
-    }
-    
-    render() {
-        return (
-            <>
-                    <p>Not found</p>
-            </>
-        )
-    }
-}
+const NotFound = () => {
+  return (
+    <div className="conteiner-NotFound">
+      <div className="contenido-NotFound">
+        <h1>404</h1>
+        <h2>Te perdiste</h2>
+        <p>
+          No podemos encontrar la página que estás buscando.
+          (gatitos para piero, apobanos porfas
+            🙏)
+        </p>
+        <Link to="/">
+          <button className="inicio-NotFound">Regresar a Inicio</button>
+        </Link>
+        <div className="img-NotFound">
+          <img src="./img/NotFound.png" alt="Not Found" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Detalles
+export default NotFound;
