@@ -1,5 +1,6 @@
 import Card from "../Card/Card"
 import { Component } from "react";
+import "./GridMovies.css"
 
 const options = {
     method: "GET",
@@ -29,12 +30,12 @@ class GridMovies extends Component{
     }}
     render(){
         return(
-                <section>
+                <section className="main_body">
                     <h2>{this.props.titulo}</h2>
                     {this.state.movies.length === 0 ?
                     <h3> Cargando... </h3> :
                     <>{this.state.movies.map((movie, idx)=>
-                        <Card 
+                        <Card className="card"
                         key={idx}
                         nombre ={movie.title}
                         id ={movie.id}

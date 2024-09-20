@@ -5,3 +5,42 @@
 .mostrar{
     display: block;
 }
+
+.card {
+    flex: 0 0 200px;
+    height: 100%; 
+    background-color: #333; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 16px;
+    margin-right: 25px;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto; 
+    border-radius: 10px;
+}
+  
+.card h2 {
+    color: #fff;
+    font-size: 16px;
+    margin: 8px 0;
+}
+  
+.card p {
+    color: #aaa;
+    font-size: 14px;
+}

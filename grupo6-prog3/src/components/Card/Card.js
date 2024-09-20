@@ -61,7 +61,7 @@ class Card extends Component {
     )
     render() {
         return (
-            <article>
+            <article className="card">
                 <h2>{this.props.nombre}</h2>
                 <img src={this.props.image} alt="Imagen pelicula" />
                 <button onClick={() => !this.state.esFavorito ? this.agregarAFavoritos() : this.quitarDeFavoritos()}>
