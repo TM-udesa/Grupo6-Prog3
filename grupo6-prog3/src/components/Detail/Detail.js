@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./Detail.css"
 
 class Detail extends Component{
     constructor(props){
@@ -19,11 +20,12 @@ class Detail extends Component{
         }
     
     render() {
-        return (
-            <>  
+        return ( 
+            <section className="detalle_container">
                 <img src={`https://image.tmdb.org/t/p/w342/${this.state.detalle.poster_path}`} alt="Imagen pelicula" />
-                <p>Nombre de la pelicula: {this.state.detalle.title}</p>
-                <p>Calificacion promedio: {this.state.detalle.vote_average}</p>
+                <p className="text_detail">Nombre de la pelicula: {this.state.detalle.title}</p>
+                <p className="text_detail">Fecha de estreno: {this.state.detalle.release_date}</p>
+                <p>Generos:</p>
                 <ul>
                     {this.state.detalle.genres && this.state.detalle.genres.length > 0 ? (
                     this.state.detalle.genres.map((genero, idx) => (
@@ -33,10 +35,11 @@ class Detail extends Component{
                     <li>Cargando géneros...</li>
                     )}
                 </ul>
-                <p>Fecha de estreno: {this.state.detalle.release_date}</p>
-                <p>Duracion: {this.state.detalle.runtime}mins</p>
+                <p className="rating">Calificacion promedio: {this.state.detalle.vote_average}</p>
+                <p className="runtime">Duracion: {this.state.detalle.runtime}mins</p>
+                <p>Sinopsis: {this.state.detalle.overview}</p>
                 
-            </>
+            </section>
         )
     }
 }
