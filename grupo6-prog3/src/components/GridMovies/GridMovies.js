@@ -33,8 +33,9 @@ class GridMovies extends Component{
                 <section className="main_body">
                     <h2>{this.props.titulo}</h2>
                     {this.state.movies.length === 0 ?
-                    <h3>No encontramos resultados para tu busqueda</h3> :
-                    <>{this.state.movies.map((movie, idx)=>
+                    <h2>No encontramos resultados para tu busqueda</h2> :
+                    <div className="movies_container">
+                        {this.state.movies.map((movie, idx)=>
                         <Card className="card"
                         key={idx}
                         nombre ={movie.title}
@@ -43,7 +44,7 @@ class GridMovies extends Component{
                         descripcion = {movie.overview}
                         />
                     )}
-                    </>
+                    </div>
                     }
                 </section>
         )

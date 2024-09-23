@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./SearchForm.css"
 
 class SearchForm extends Component{
     constructor(props){
@@ -25,10 +26,10 @@ class SearchForm extends Component{
 
     render(){
         return(
-            <div>
-            <form onSubmit={(e)=>this.handleCancelSumbit(e)}>
+            <div className="search_container">
+            <form onSubmit={(e)=>this.handleCancelSumbit(e)} className="search_form">
                 <input onChange={(e)=>this.handleFormChange(e)} name="query" value={this.state.query} />
-                <button onClick={()=>this.handleFormSumbit()}>Search</button>
+                <button onClick={()=>this.handleFormSumbit()} className="search_button">Search</button>
             </form>
         </div>
         )
