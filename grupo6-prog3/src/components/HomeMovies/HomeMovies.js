@@ -6,7 +6,7 @@ const HomeMovies = (props) => {
         return(
             <>
                 <section>
-
+                <SearchForm history={props.history} />
                     <article>
                     
                     <GridMovies

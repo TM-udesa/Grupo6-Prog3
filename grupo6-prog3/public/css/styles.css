@@ -31,99 +31,11 @@ a {
   border-radius: 1000px;
 }
 
-
-.conteiner-NotFound {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 20px;
-  background-image: url('/img/NotFoundBack.webp');
-  background-size: cover;
-  background-position: center;
-
-}
-  
-.contenido-NotFound {
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 100%;
-}
-  
-.contenido-NotFound  h1 {
-  font-size: 96px;
-  color: #ff6347;
-  margin: 0;
-}
-  
-.contenido-NotFound  h2 {
-  font-size: 24px;
-  margin: 20px 0;
-  color: #333;
-}
-  
-.contenido-NotFound  p {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 30px;
-}
-  
-.inicio-NotFound {
-  background-color: #ff6347;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-  
-.inicio-NotFound:hover {
-  background-color: #ff4500;
-}
-  
-.img-NotFound {
+.h2-results{
+  color: white;
+  margin-left: 50px;
   margin-top: 20px;
 }
-  
-.img-NotFound img {
-  width: 100%;
-  max-width: 300px;
+.but-results{
+  margin-left: 50px;
 }
-
-.btn {
-  background-color: #00b4d8;
-  border: none; 
-  color: white; 
-  padding: 10px 20px; 
-  text-align: center; 
-  text-decoration: none; 
-  display: inline-block; 
-  font-size: 16px; 
-  margin: 4px 2px; 
-  cursor: pointer; 
-  border-radius: 4px; 
-  
-}
-
-.containerBTN{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btn a {
-  color: white; 
-  text-decoration: none; 
-  display: block; 
-}
-
-
-.btn:hover {
-  background-color: #00b4d8;
-}
-  
