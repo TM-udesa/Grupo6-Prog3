@@ -45,6 +45,6 @@
 }
   
 .detalle_container .rating, .detalle_container .runtime {
-    font-size: 20px; /* Tamaño mayor para destacar */
-    color: #FFD700; /* Color dorado para destacar la calificación */
+    font-size: 20px;
+    color: #FFD700;
   }
