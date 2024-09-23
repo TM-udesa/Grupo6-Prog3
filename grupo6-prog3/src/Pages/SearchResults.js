@@ -1,5 +1,6 @@
 import { Component } from "react"
-import MoviesGrid from "../components/GridMovies/GridMovies"
+import MoviesGrid from "../components/GridMovies/GridMovies";
+import Loader from "../components/Loader/Loader";
 
 class SearchResults extends Component{
     constructor(props){
@@ -28,7 +29,8 @@ class SearchResults extends Component{
     render() {
         return (
             <div>
-                {!this.state.isLoading ? <MoviesGrid movies={this.state.movies} /> : <p>Loading...</p>}
+                {!this.state.isLoading ? <MoviesGrid movies={this.state.movies} /> : (
+          <Loader />)}
             </div>
         );
     }

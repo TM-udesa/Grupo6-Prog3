@@ -1,6 +1,7 @@
 import Card from "../Card/Card"
 import { Component } from "react";
 import "./GridMovies.css"
+import { Link } from "react-router-dom";
 
 const options = {
     method: "GET",
@@ -33,7 +34,12 @@ class GridMovies extends Component{
                 <section className="main_body">
                     <h2>{this.props.titulo}</h2>
                     {this.state.movies.length === 0 ?
-                    <h2>No encontramos resultados para tu busqueda</h2> :
+                        <>
+                        <h2>No encontramos resultados para tu búsqueda</h2>
+                        <Link to="/">
+                          <button className="inicio-button">Volver a Inicio</button>
+                        </Link>
+                      </>:
                     <div className="movies_container">
                         {this.state.movies.map((movie, idx)=>
                         <Card className="card"
