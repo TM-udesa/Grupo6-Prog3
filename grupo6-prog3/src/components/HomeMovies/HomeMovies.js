@@ -14,7 +14,10 @@ const HomeMovies = (props) => {
                         url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"  
                         limit = "5"
                     />
-                    <button><Link to="./Populares">Ver todos</Link></button> 
+                        <div class="containerBTN">
+                            <button class="btn"><Link to="./Populares">Ver todos</Link></button>
+                        </div>
+                   
                     </article>
                     
                     <article>
@@ -24,7 +27,10 @@ const HomeMovies = (props) => {
                         url = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1"
                         limit = "5"
                     />
-                    <button><Link to="./Proximamente">Ver todos</Link></button>
+                        <div class="containerBTN">
+                            <button class="btn"><Link to="./Proximamente">Ver todos</Link></button>
+                        </div>
+
                     </article>
                 </section>
             </>
