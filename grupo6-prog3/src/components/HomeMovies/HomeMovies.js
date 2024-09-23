@@ -1,4 +1,4 @@
-import { Component } from "react";
+
 import GridMovies from "../GridMovies/GridMovies";
 import { Link } from "react-router-dom"
 import SearchForm from "../Search/SearchForm";
