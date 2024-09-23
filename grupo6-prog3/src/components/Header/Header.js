@@ -17,7 +17,6 @@ const Header = () => {
                     <li> <Link to="/Proximamente">Proximamente</Link> </li>
                 </ul>
             </nav>
-            <SearchResults />
         </header>
     )
 }
