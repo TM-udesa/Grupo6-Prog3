@@ -1,21 +1,11 @@
-import { Component } from "react";
 import Detail from "../components/Detail/Detail"
 
-class Detalles extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            id: props.match.params.id
-        }
-    }
-    
-    render() {
+const Detalles = (props) => {
         return (
             <>
-                <Detail id = {this.state.id} />
+                <Detail id = {props.match.params.id} />
             </>
         )
-    }
 }
 
 export default Detalles

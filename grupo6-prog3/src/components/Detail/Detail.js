@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "./Detail.css"
+import FavoritosIcon from "../FavoritosIcon/FavoritosIcon";
 
 class Detail extends Component{
     constructor(props){
@@ -38,6 +39,7 @@ class Detail extends Component{
                 <p className="rating">Calificacion promedio: {this.state.detalle.vote_average}</p>
                 <p className="runtime">Duracion: {this.state.detalle.runtime}mins</p>
                 <p>Sinopsis: {this.state.detalle.overview}</p>
+                <FavoritosIcon id={Number(this.props.id)} />
                 
             </section>
         )

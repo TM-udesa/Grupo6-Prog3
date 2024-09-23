@@ -1,14 +1,11 @@
-import { Component } from "react"
-import { Link } from "react-router-dom"
-import "./Card.css"
-import FavoritosIcon from "../FavoritosIcon/FavoritosIcon";
+import React, { Component } from 'react'
 
-class Card extends Component {
+export default class FavoritosIcon extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
             esFavorito: false,
-            verDescripcion: false
         };
     }
 
@@ -54,31 +51,12 @@ class Card extends Component {
             esFavorito: false
         })
     }
-    handleVerDescripcion = () => (
-        this.setState(prevState => ({
-            verDescripcion: !prevState.verDescripcion
-        }))
 
+  render() {
+    return (
+        <button onClick={() => !this.state.esFavorito ? this.agregarAFavoritos() : this.quitarDeFavoritos()}>
+        {!this.state.esFavorito ? "Agregar a favoritos" : "Quitar de favoritos"}
+    </button>
     )
-    render() {
-        return (
-            <article className="card">
-                <h2>{this.props.nombre}</h2>
-                <img src={this.props.image} alt="Imagen pelicula" />
-                <FavoritosIcon id={this.props.id} />
-                <button><Link to={`pelicula/${this.props.id}`}>Ver detalle</Link></button>
-                <div>
-                    {this.state.verDescripcion ? 
-                        <button onClick={() => this.handleVerDescripcion()}>Ver Menos</button> :
-                        <button onClick={() => this.handleVerDescripcion()}>Ver Descripcion</button>}
-                </div>
-
-                <p className={this.state.verDescripcion ? "mostrar" : "ocultar"}>{this.props.descripcion}</p>
-
-            </article >
-        )
-    }
+  }
 }
-
-
-export default Card
