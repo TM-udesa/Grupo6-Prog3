@@ -6,7 +6,6 @@ class Populares extends Component {
         super(props);
         this.state = {
             movies: [],
-            filterMovies: [],
             filterValue: "" 
         };
     }
@@ -17,43 +16,40 @@ class Populares extends Component {
             .then((data) => {
                 this.setState({
                     movies: data.results,
-                    filterMovies: data.results
                 });
             })
             .catch((error) => console.log(error));
     }
 
     handleFilter(e) {
-        const userValue = e.target.value;
         this.setState({
-            filterValue: userValue, 
-            filterMovies: this.state.movies.filter(movie => 
-                movie.title.toLowerCase().includes(userValue.toLowerCase())
-            )
+            filterValue: e.target.value,
         });
         console.log(this.state.filterMovies);
     }
 
     handleResetFilter() {
         this.setState({
-            filterValue: "", 
-            filterMovies: this.state.movies
+            filterValue: "",
         });
     }
 
     render() {
         return (
             <>
-                <input 
-                    type="text" 
-                    value={this.state.filterValue} 
+                <input
+                    type="text"
+                    value={this.state.filterValue}
                     onChange={(e) => this.handleFilter(e)} 
+                    placeholder="Buscar película..."
+                    className="filter-input"
                 />
                 <button onClick={() => this.handleResetFilter()}>Reset Filter</button>
                 <section>
                     <GridMovies 
-                        movies={this.state.filterMovies}
+                        movies={this.state.movies}
                         titulo="Populares"
+                        filterValue={this.state.filterValue}
                         url="https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
                         limit="100"
                     />
