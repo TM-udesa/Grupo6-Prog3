@@ -39,3 +39,12 @@ a {
 .but-results{
   margin-left: 50px;
 }
+
+
+.filter-input {
+  margin-left: 45px ;
+  padding: 10px; 
+  border: 1px solid;
+  border-radius: 4px; 
+  margin-top: 20px;
+}
