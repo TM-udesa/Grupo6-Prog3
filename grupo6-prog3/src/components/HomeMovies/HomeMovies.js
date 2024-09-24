@@ -13,6 +13,7 @@ const HomeMovies = (props) => {
                         titulo = "Populares"
                         url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"  
                         limit = "5"
+                        home={true}
                     />
                         <div class="containerBTN">
                             <button class="btn"><Link to="./Populares">Ver todos</Link></button>

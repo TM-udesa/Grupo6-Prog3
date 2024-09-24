@@ -1,6 +1,7 @@
 import Card from "../Card/Card"
 import { Component } from "react";
 import "./GridMovies.css"
+import Filtrado from "../Filtrado/Filtrado"
 import { Link } from "react-router-dom";
 
 const options = {
@@ -21,11 +22,11 @@ class GridMovies extends Component{
     }
     
     componentDidMount(){
-        if (this.state.movies.length === 0) {
+        if (this.props.movies.length === 0) {
         fetch(this.props.url, options)
             .then(response => response.json() )
             .then( data => this.setState(
-                {movies: data.results.slice(0,this.props.limit)}
+                {movies: this.props.home ? data.results.slice(0,this.props.limit) : data.results}
             ))
             .catch( error => console.log(error));
     }}
