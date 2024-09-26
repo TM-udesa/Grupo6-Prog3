@@ -6,18 +6,22 @@ class Populares extends Component {
         super(props);
         this.state = {
             movies: [],
-            filterValue: "" 
+            filteredMovies: [],
+            filterValue: "",
+            actualPage : 1
+
         };
     }
 
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=31e421d77201e7a1eefe33f85b67fa3b')
+        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.actualPage}&api_key=31e421d77201e7a1eefe33f85b67fa3b`)
             .then(response => response.json())
             .then((data) => {
                 this.setState({
                     movies: data.results,
-                });
-            })
+                    filteredMovies: data.results,
+                }
+                )})
             .catch((error) => console.log(error));
     }
 
@@ -33,6 +37,23 @@ class Populares extends Component {
             filterValue: "",
         });
     }
+    handleLoadMore(){
+        fetch(
+            `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.actualPage + 1}&api_key=31e421d77201e7a1eefe33f85b67fa3b`
+        )
+        .then(response => response.json())
+        .then((data) => {
+            this.setState({
+                movies: this.state.movies.concat(data.results),
+                filteredMovies: this.state.filteredMovies.concat(data.results),
+                actualPage: this.state.actualPage + 1
+            });
+        })
+        .catch((error) => console.log(error));
+        console.log(this.state.movies);
+        }
+    
+
 
     render() {
         return (
@@ -51,8 +72,9 @@ class Populares extends Component {
                         titulo="Populares"
                         filterValue={this.state.filterValue}
                         url="https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
-                        limit="100"
+                        cargarMas = {true}
                     />
+                <button onClick={() => this.handleLoadMore()}>Cargar Mas</button>
                 </section>
             </>
         );

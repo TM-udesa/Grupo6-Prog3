@@ -15,7 +15,7 @@ class GridMovies extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: props.movies || []
+            movies: this.props.movies || []
         };
     }
 
@@ -32,9 +32,9 @@ class GridMovies extends Component {
 
     render() {
         const { filterValue = "" } = this.props; 
-        const filteredMovies = this.state.movies.filter(movie =>
-            movie.title.toLowerCase().includes(filterValue.toLowerCase())
-        );
+        const filteredMovies = this.props.cargarMas === true ? this.props.movies.filter(movie =>
+            movie.title.toLowerCase().includes(filterValue.toLowerCase())) : this.state.movies;
+
 
         return (
             <section className="main_body">
