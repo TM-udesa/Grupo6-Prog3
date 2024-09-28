@@ -29,7 +29,6 @@ class Populares extends Component {
         this.setState({
             filterValue: e.target.value,
         });
-        console.log(this.state.filterMovies);
     }
 
     handleResetFilter() {
@@ -50,7 +49,6 @@ class Populares extends Component {
             });
         })
         .catch((error) => console.log(error));
-        console.log(this.state.movies);
         }
     
 
@@ -63,7 +61,7 @@ class Populares extends Component {
                     value={this.state.filterValue}
                     onChange={(e) => this.handleFilter(e)} 
                     placeholder="Buscar película..."
-                    className="filter-input"
+                    className="filter_input"
                 />
                 <button onClick={() => this.handleResetFilter()}>Reset Filter</button>
                 <section>

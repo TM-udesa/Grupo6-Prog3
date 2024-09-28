@@ -31,20 +31,38 @@ a {
   border-radius: 1000px;
 }
 
-.h2-results{
+.h2_results{
   color: white;
   margin-left: 50px;
   margin-top: 20px;
 }
-.but-results{
+.but_results{
   margin-left: 50px;
 }
 
 
-.filter-input {
+.filter_input {
   margin-left: 45px ;
   padding: 10px; 
   border: 1px solid;
   border-radius: 4px; 
   margin-top: 20px;
+}
+
+@media (max-width: 360px) {
+  .h2_results {
+    margin-left: 20px; 
+    font-size: 18px; 
+  }
+
+  .but_results {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .filter_input {
+    margin-left: 20px;
+    padding: 8px;       
+    font-size: 14px; 
+  }
 }

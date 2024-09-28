@@ -1,4 +1,3 @@
-
 import GridMovies from "../GridMovies/GridMovies";
 import { Link } from "react-router-dom"
 import SearchForm from "../Search/SearchForm";
@@ -13,10 +12,9 @@ const HomeMovies = (props) => {
                         titulo = "Populares"
                         url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"  
                         limit = "5"
-                        home={true}
                     />
                         <div class="containerBTN">
-                            <button class="btn"><Link to="./Populares">Ver todos</Link></button>
+                            <button ><Link to="./populares">Ver todos</Link></button>
                         </div>
                    
                     </article>
@@ -29,7 +27,7 @@ const HomeMovies = (props) => {
                         limit = "5"
                     />
                         <div class="containerBTN">
-                            <button class="btn"><Link to="./Proximamente">Ver todos</Link></button>
+                            <button ><Link to="./proximamente">Ver todos</Link></button>
                         </div>
 
                     </article>

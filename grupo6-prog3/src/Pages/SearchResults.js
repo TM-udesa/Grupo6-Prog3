@@ -32,9 +32,9 @@ class SearchResults extends Component {
 
         return (
             <div>
-                {this.state.movies.length >0 &&<> <h2 className="h2-results">Tus búsquedas para: {query}</h2>
+                {this.state.movies.length >0 &&<> <h2 className="h2_results">Tus búsquedas para: {query}</h2>
                 <Link to="/">
-                        <button className="but-results">
+                        <button className="but_results">
                             Volver a Inicio
                         </button>
                     </Link>

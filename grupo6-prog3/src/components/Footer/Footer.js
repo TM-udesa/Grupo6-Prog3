@@ -1,20 +1,20 @@
 import React from "react";
 import "./Footer.css"
 
-function Footer() {
+const Footer = () => {
     return (
-        <footer class="footer">
-            <div class="social-links">
-                <a href="https://www.facebook.com" class="social-icon">
+        <footer className="footer">
+            <div className="social_links">
+                <a href="https://www.facebook.com" className="social_icon">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.twitter.com" class="social-icon">
+                <a href="https://www.twitter.com" className="social_icon">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.instagram.com" class="social-icon">
+                <a href="https://www.instagram.com" className="social_icon">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com" class="social-icon">
+                <a href="https://www.linkedin.com" className="social_icon">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>

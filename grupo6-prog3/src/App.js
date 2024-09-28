@@ -10,8 +10,6 @@ import Detalles from "./Pages/Datalles"
 import NotFound from "./Pages/NotFound"
 import SearchResults from "./Pages/SearchResults"
 
-import { Router } from "react-router-dom/cjs/react-router-dom.min";
-
 function App() {
   return (
     <>

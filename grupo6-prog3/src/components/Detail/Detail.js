@@ -24,7 +24,7 @@ class Detail extends Component {
           loading: false, 
         })
       )
-      .catch((error) => {
+      .catch(() => {
         this.setState({ loading: false }); 
       });
   }
