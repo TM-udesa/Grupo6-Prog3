@@ -8,7 +8,7 @@ class Proximamente extends Component {
             movies: [],
             filteredMovies: [],
             filterValue: "",
-            actualPage : 1
+            actualPage: 1
         };
     }
 
@@ -20,36 +20,37 @@ class Proximamente extends Component {
                     movies: data.results,
                     filteredMovies: data.results,
                 }
-                )})
+                )
+            })
             .catch((error) => console.log(error));
     }
 
     handleFilter(e) {
         this.setState({
-            filterValue: e.target.value 
+            filterValue: e.target.value
         });
     }
 
     handleResetFilter() {
         this.setState({
-            filterValue: "" 
+            filterValue: ""
         });
     }
 
-    handleLoadMore(){
+    handleLoadMore() {
         fetch(
             `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${this.state.actualPage + 1}&api_key=31e421d77201e7a1eefe33f85b67fa3b`
         )
-        .then(response => response.json())
-        .then((data) => {
-            this.setState({
-                movies: this.state.movies.concat(data.results),
-                filteredMovies: this.state.filteredMovies.concat(data.results),
-                actualPage: this.state.actualPage + 1
-            });
-        })
-        .catch((error) => console.log(error));
-        }
+            .then(response => response.json())
+            .then((data) => {
+                this.setState({
+                    movies: this.state.movies.concat(data.results),
+                    filteredMovies: this.state.filteredMovies.concat(data.results),
+                    actualPage: this.state.actualPage + 1
+                });
+            })
+            .catch((error) => console.log(error));
+    }
 
     render() {
         return (
@@ -57,7 +58,7 @@ class Proximamente extends Component {
                 <input
                     type="text"
                     value={this.state.filterValue}
-                    onChange={(e) => this.handleFilter(e)} 
+                    onChange={(e) => this.handleFilter(e)}
                     placeholder="Buscar película..."
                     className="filter_input"
                 />
@@ -67,10 +68,10 @@ class Proximamente extends Component {
                         titulo="Proximamente"
                         movies={this.state.movies}
                         url="https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1"
-                        filterValue={this.state.filterValue} 
-                        cargarMas = {true}
+                        filterValue={this.state.filterValue}
+                        cargarMas={true}
                     />
-                <button onClick={() => this.handleLoadMore()}>Cargar Mas</button>
+                    <button onClick={() => this.handleLoadMore()}>Cargar Mas</button>
                 </section>
             </>
         );

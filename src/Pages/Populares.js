@@ -8,7 +8,7 @@ class Populares extends Component {
             movies: [],
             filteredMovies: [],
             filterValue: "",
-            actualPage : 1
+            actualPage: 1
 
         };
     }
@@ -21,7 +21,8 @@ class Populares extends Component {
                     movies: data.results,
                     filteredMovies: data.results,
                 }
-                )})
+                )
+            })
             .catch((error) => console.log(error));
     }
 
@@ -36,21 +37,21 @@ class Populares extends Component {
             filterValue: "",
         });
     }
-    handleLoadMore(){
+    handleLoadMore() {
         fetch(
             `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.actualPage + 1}&api_key=31e421d77201e7a1eefe33f85b67fa3b`
         )
-        .then(response => response.json())
-        .then((data) => {
-            this.setState({
-                movies: this.state.movies.concat(data.results),
-                filteredMovies: this.state.filteredMovies.concat(data.results),
-                actualPage: this.state.actualPage + 1
-            });
-        })
-        .catch((error) => console.log(error));
-        }
-    
+            .then(response => response.json())
+            .then((data) => {
+                this.setState({
+                    movies: this.state.movies.concat(data.results),
+                    filteredMovies: this.state.filteredMovies.concat(data.results),
+                    actualPage: this.state.actualPage + 1
+                });
+            })
+            .catch((error) => console.log(error));
+    }
+
 
 
     render() {
@@ -59,20 +60,20 @@ class Populares extends Component {
                 <input
                     type="text"
                     value={this.state.filterValue}
-                    onChange={(e) => this.handleFilter(e)} 
+                    onChange={(e) => this.handleFilter(e)}
                     placeholder="Buscar película..."
                     className="filter_input"
                 />
                 <button onClick={() => this.handleResetFilter()}>Reset Filter</button>
                 <section>
-                    <GridMovies 
+                    <GridMovies
                         movies={this.state.movies}
                         titulo="Populares"
                         filterValue={this.state.filterValue}
                         url="https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
-                        cargarMas = {true}
+                        cargarMas={true}
                     />
-                <button onClick={() => this.handleLoadMore()}>Cargar Mas</button>
+                    <button onClick={() => this.handleLoadMore()}>Cargar Mas</button>
                 </section>
             </>
         );

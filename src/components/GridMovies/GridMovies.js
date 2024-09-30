@@ -31,9 +31,9 @@ class GridMovies extends Component {
     }
 
     render() {
-        const { filterValue = "" } = this.props; 
-        const filteredMovies = this.props.cargarMas === true ? 
-            this.props.movies.filter(movie => movie.title.toLowerCase().includes(filterValue.toLowerCase())) 
+        const { filterValue = "" } = this.props;
+        const filteredMovies = this.props.cargarMas === true ?
+            this.props.movies.filter(movie => movie.title.toLowerCase().includes(filterValue.toLowerCase()))
             : this.state.movies;
 
 
@@ -44,7 +44,7 @@ class GridMovies extends Component {
                     <>
                         <h2>No encontramos resultados para tu búsqueda</h2>
                         <Link to="/">
-                                <button>Volver a Inicio</button>
+                            <button>Volver a Inicio</button>
                         </Link>
                     </>
                 ) : (

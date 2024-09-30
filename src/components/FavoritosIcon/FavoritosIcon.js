@@ -52,11 +52,11 @@ export default class FavoritosIcon extends Component {
         })
     }
 
-  render() {
-    return (
-        <button onClick={() => !this.state.esFavorito ? this.agregarAFavoritos() : this.quitarDeFavoritos()}>
-        {!this.state.esFavorito ? <i className="fa-regular fa-heart" style={{ color: '#1b78b1', fontSize: '30px'}}></i>  : <i className="fa-solid fa-heart" style={{ color: '#1b78b1', fontSize: '30px' }}></i>}
-    </button>
-    )
-  }
+    render() {
+        return (
+            <button onClick={() => !this.state.esFavorito ? this.agregarAFavoritos() : this.quitarDeFavoritos()}>
+                {!this.state.esFavorito ? <i className="fa-regular fa-heart" style={{ color: '#1b78b1', fontSize: '30px' }}></i> : <i className="fa-solid fa-heart" style={{ color: '#1b78b1', fontSize: '30px' }}></i>}
+            </button>
+        )
+    }
 }

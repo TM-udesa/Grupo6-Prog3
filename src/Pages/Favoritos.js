@@ -24,15 +24,15 @@ class Favoritos extends Component {
                 .then((moviesData) => {
                     this.setState({
                         movies: moviesData,
-                        loading: false, 
+                        loading: false,
                     });
                 })
                 .catch((error) => {
                     console.error("Error fetching movies:", error);
-                    this.setState({ loading: false }); 
+                    this.setState({ loading: false });
                 });
         } else {
-            this.setState({ loading: false }); 
+            this.setState({ loading: false });
         }
     }
 
@@ -40,7 +40,7 @@ class Favoritos extends Component {
         return (
             <>
                 {this.state.loading ? (
-                    <Loader /> 
+                    <Loader />
                 ) : this.state.movies.length > 0 ? (
                     <GridMovies movies={this.state.movies} titulo="Favoritos" />
                 ) : (

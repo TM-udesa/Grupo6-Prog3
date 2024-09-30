@@ -32,13 +32,13 @@ class SearchResults extends Component {
 
         return (
             <div>
-                {this.state.movies.length >0 &&<> <h2 className="h2_results">Tus búsquedas para: {query}</h2>
-                <Link to="/">
+                {this.state.movies.length > 0 && <> <h2 className="h2_results">Tus búsquedas para: {query}</h2>
+                    <Link to="/">
                         <button className="but_results">
                             Volver a Inicio
                         </button>
                     </Link>
-                    </>}
+                </>}
                 {!this.state.isLoading ? (
                     <MoviesGrid movies={this.state.movies} />
                 ) : (

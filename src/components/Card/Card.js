@@ -67,11 +67,11 @@ class Card extends Component {
                 <img src={this.props.image} alt="Imagen pelicula" />
                 <FavoritosIcon id={this.props.id} />
                 <button><Link to={`pelicula/${this.props.id}`}>Ver detalle</Link></button>
-                <div>
-                    {this.state.verDescripcion ? 
-                        <button onClick={() => this.handleVerDescripcion()}>Ver Menos</button> :
-                        <button onClick={() => this.handleVerDescripcion()}>Ver Descripcion</button>}
-                </div>
+
+                {this.state.verDescripcion ?
+                    <button onClick={() => this.handleVerDescripcion()}>Ver Menos</button> :
+                    <button onClick={() => this.handleVerDescripcion()}>Ver Descripcion</button>}
+
 
                 <p className={this.state.verDescripcion ? "mostrar" : "ocultar"}>{this.props.descripcion}</p>
 
